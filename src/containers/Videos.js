@@ -4,7 +4,7 @@ const Videos = (props) => (
   <div>
     <h1>Videos Component</h1>
     {props.videos.map((video) =>
-      <div>
+      <div className="video-card">
         <h3>{video.title}</h3>
         <p>artist: {video.artist}</p>
       </div>
