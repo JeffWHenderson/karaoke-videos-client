@@ -1,11 +1,26 @@
 import React from 'react';
 import '../App.css'
+import Videos from './Videos'
+
+const videos = [
+  {
+    title: "hello",
+    artist: "adele",
+
+  },
+  {
+    title: "goodbye",
+    artist: "beatles",
+
+  }
+]
 
 class App extends React.Component {
+
   render() {
     return(
-      <div>
-        <h1>Hello World</h1>
+      <div className="App">
+        <Videos videos={videos} />
       </div>
     )
   }
