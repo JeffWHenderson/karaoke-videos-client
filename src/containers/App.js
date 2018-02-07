@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state) // test test test
+    //console.log(this.state) // test test test
     return(
       <div className="App">
         <Videos videos={this.state.videos} />
