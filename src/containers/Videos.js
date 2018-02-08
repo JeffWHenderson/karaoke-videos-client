@@ -16,8 +16,9 @@ class Videos extends React.Component {
         <h1>Videos Card Container</h1>
         {this.props.videos.map((video) => <VideoCard video={video} /> )}
         <VideoForm />
-
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/WmzH0aKzifk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div className="current-video" >
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/WmzH0aKzifk" frameborder="2" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+        </div>
 
       </div>
     )

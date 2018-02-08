@@ -13,6 +13,17 @@ const videosReducer = (state = [], action) => {
   }
 }
 
+const reducers = combineReducers({
+  videos: videosReducer
+})
+const middleware = [thunk]
+
+export default createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(...middleware)
+)
+
 // let videos = videosReducer(undefined, {type: "@@INIT"})
 
 // var store = {

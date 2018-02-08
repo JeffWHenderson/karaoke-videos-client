@@ -6,7 +6,7 @@ class VideoForm extends React.Component {
       <div>
       Add A Karaoke Video From Youtube
         <form>
-
+          inputs = title artist youtube_surl img_url
         </form>
       </div>
     )
