@@ -1,4 +1,5 @@
 import React from 'react'
+import VideoCard from '../components/VideoCard'
 
 const Videos = (props) => (
   <div>
@@ -9,6 +10,7 @@ const Videos = (props) => (
         <p>artist: {video.artist}</p>
       </div>
     )}
+    <VideoCard />
   </div>
 )
 
