@@ -44,4 +44,7 @@ const mapStateToProps = state => {
     videoFormData: state.videoFormData
   }
 }
-export default connect(mapStateToProps, { updateVideoFormData })(VideoForm)
+export default connect(mapStateToProps, {
+  updateVideoFormData,
+  createVideo
+})(VideoForm)
