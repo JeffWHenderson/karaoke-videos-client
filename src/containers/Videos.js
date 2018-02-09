@@ -5,18 +5,9 @@ import VideoCard from '../components/VideoCard'
 import VideoForm from './VideoForm'
 
 class Videos extends React.Component {
-  // constructor(props){
-  //   super(props)
-  //
-  //   this.state = {
-  //
-  //   }
-  // }
+
   componentDidMount() {
-    this.props.dispatch({
-      type: 'GET_VIDEOS_SUCCESS',
-      videos: [ {title: "hello", artist: "adele"}, { title: "p", artist: "u"}, { title: "n", artist: "k"}]
-    })
+    this.props.getVideos()
   }
 
   render() {
@@ -40,4 +31,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps { getVideos })(Videos)
+export default connect(mapStateToProps, { getVideos })(Videos)
