@@ -5,17 +5,10 @@ import {
 } from 'redux'
 import thunk from 'redux-thunk'
 
-const videosReducer = (state = [], action) => {
-  switch(action.type) {
-    case 'GET_VIDEOS_SUCCESS':
-      return action.videos
-    default:
-      return state
-  }
-}
+import videos from './reducers/videos'
 
 const reducers = combineReducers({
-  videos: videosReducer
+  videos
 })
 const middleware = [thunk]
 
