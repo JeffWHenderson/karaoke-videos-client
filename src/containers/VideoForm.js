@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from 'react-redux'
 import { updateVideoFormData } from '../actions/videoForm'
+import { createVideo } from '../actions/videos'
 
 class VideoForm extends React.Component {
   handleOnChange = (e) => {
@@ -11,17 +12,26 @@ class VideoForm extends React.Component {
     this.props.updateVideoFormData(currentVideoFormData)
   }
 
+  handleOnSubmit = event => {
+    event.preventDefault()
+    this.props.createVideo(this.props.videoFormData)
+  }
+
   render() {
-    const { name, price, img_url, youtube_url } = this.props.videoFormData
+    const { title, artist, img_url, youtube_url } = this.props.videoFormData
 
     return (
       <div>
       Add A Karaoke Video From Youtube
-        <form>
-          <input type="text" name="title" value="title" onChange={this.handleOnChange} />
-          <input type="text" name="artist" value="artist" onChange={this.handleOnChange} />
-          <input type="text" name="youtube_url" value="youtube_url" onChange={this.handleOnChange} />
-          <input type="text" name="img_url" value="img_url" onChange={this.handleOnChange} />
+        <form onSubmit={this.handleOnSubmit}>
+          <label forHtml="title" >title</label>
+            <input type="text" onChange={this.handleOnChange} name="title" value={title}  />
+          <label forHtml="artist" >Artist</label>
+            <input type="text" onChange={this.handleOnChange} name="artist" value={artist}  />
+          <label forHtml="youtube_url" >URL</label>
+            <input type="text" onChange={this.handleOnChange} name="youtube_url" value={youtube_url} />
+          <label forHtml="img_url" >Image URL</label>
+            <input type="text" onChange={this.handleOnChange} name="img_url" value={img_url} />
           <button type="submit">SUBMIT</button>
         </form>
       </div>
