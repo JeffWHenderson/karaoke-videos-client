@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import { getVideos } from '../actions/videos'
 import VideoCard from '../components/VideoCard'
 import VideoForm from './VideoForm'
 
@@ -40,4 +40,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Videos)
+export default connect(mapStateToProps { getVideos })(Videos)

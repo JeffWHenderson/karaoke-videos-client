@@ -11,11 +11,9 @@ class App extends React.Component {
   //   }
   // }
 
-  componentDidMount() {
-    fetch('http://localhost:3001/api/videos')
-    .then(res => res.json())
-    .then(videos => this.setState({ videos })) // may need to remove
-  }
+  // componentDidMount() {
+  //   this.props.getVideos()
+  // }
 
   render() {
     //console.log(this.state) // test test test
