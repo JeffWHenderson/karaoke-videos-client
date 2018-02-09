@@ -12,6 +12,13 @@ class Videos extends React.Component {
   //
   //   }
   // }
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'GET_VIDEOS_SUCCESS',
+      videos: [ {title: "hello", artist: "adele"}, { title: "p", artist: "u"}, { title: "n", artist: "k"}]
+    })
+  }
+
   render() {
     return(
       <div>
@@ -27,6 +34,10 @@ class Videos extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return({
+    videos: state.videos
+  })
+}
 
-
-export default connect()(Videos)
+export default connect(mapStateToProps)(Videos)
