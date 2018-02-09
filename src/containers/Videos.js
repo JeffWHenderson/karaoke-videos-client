@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import VideoCard from '../components/VideoCard'
 import VideoForm from './VideoForm'
 
@@ -27,4 +29,4 @@ class Videos extends React.Component {
 
 
 
-export default Videos
+export default connect()(Videos)

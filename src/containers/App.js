@@ -3,13 +3,13 @@ import '../App.css'
 import Videos from './Videos'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      videos: []
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //
+  //   this.state = {
+  //     videos: []
+  //   }
+  // }
 
   componentDidMount() {
     fetch('http://localhost:3001/api/videos')
@@ -18,7 +18,6 @@ class App extends React.Component {
   }
 
   render() {
-    debugger
     //console.log(this.state) // test test test
     return(
       <div className="App">
