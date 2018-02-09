@@ -6,3 +6,10 @@ export const updateVideoFormData = (videoFormData) => {
     videoFormData
   }
 }
+
+export const resetVideoForm = () => {
+  return {
+    type: 'RESET_VIDEO_FORM' 
+  }
+
+}
