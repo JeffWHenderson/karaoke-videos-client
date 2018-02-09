@@ -4,7 +4,7 @@ export default (state = {
   img_url: '',
   youtube_url: ''
 }, action) => {
-    switch(action.type) => {
+    switch(action.type) {
       case 'UPDATED_DATA':
         return action.videoFormData
       default:
