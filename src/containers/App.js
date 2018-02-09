@@ -18,6 +18,7 @@ class App extends React.Component {
   }
 
   render() {
+    debugger
     //console.log(this.state) // test test test
     return(
       <div className="App">

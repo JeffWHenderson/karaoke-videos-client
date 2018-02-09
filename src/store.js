@@ -8,8 +8,9 @@ import thunk from 'redux-thunk'
 const videosReducer = (state = [], action) => {
   switch(action.type) {
     case 'GET_VIDEOS_SUCCESS':
-      return 'hello world'
-    default: return state
+      return action.videos
+    default:
+      return state
   }
 }
 
