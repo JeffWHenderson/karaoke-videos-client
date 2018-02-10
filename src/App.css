@@ -44,6 +44,12 @@
   display: block;
 }
 
+.video-player {
+  background-color: black;
+  width: 100%;
+  top: 0;
+}
+
 form {
-  background-color: red;
+  background-color: white;
 }
