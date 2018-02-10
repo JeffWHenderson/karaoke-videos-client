@@ -9,7 +9,7 @@ export const updateVideoFormData = (videoFormData) => {
 
 export const resetVideoForm = () => {
   return {
-    type: 'RESET_VIDEO_FORM' 
+    type: 'RESET_VIDEO_FORM'
   }
 
 }
