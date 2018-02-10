@@ -2,6 +2,39 @@
   text-align: center;
 }
 
+.video-card {
+  float: left;
+  margin: 2px;
+  display: inline-block;
+  width: 24%;
+  background: white;
+  height: 130px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}.video-card:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.video-player {
+  background-color: black;
+  width: 100%;
+  top: 0;
+}
+
+.video-queue {
+  float: right;
+  width: 25%;
+  border-left: 1px solid black;
+  height: 100%;
+}
+
+form {
+  background-color: white;
+}
+
+
+
+/*
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -25,31 +58,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.video-card {
-  float: left;
-  margin: 2px;
-  display: inline-block;
-  width: 30%;
-  background: white;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.video-card:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.current-video {
-  display: block;
-}
-
-.video-player {
-  background-color: black;
-  width: 100%;
-  top: 0;
-}
-
-form {
-  background-color: white;
-}
+} */

@@ -3,6 +3,7 @@ import '../App.css'
 import Videos from './Videos'
 import VideoForm from './VideoForm'
 import VideoPlayer from './VideoPlayer'
+import VideoQueue from './VideoQueue'
 
 class App extends React.Component {
 
@@ -12,6 +13,7 @@ class App extends React.Component {
         <VideoForm />
         <VideoPlayer />
         <Videos />
+        <VideoQueue />
       </div>
     )
   }
