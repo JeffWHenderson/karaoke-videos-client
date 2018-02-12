@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getVideos } from '../actions/videos'
 import VideoCard from '../components/VideoCard'
-import VideoForm from './VideoForm'
+//import VideoForm from './VideoForm'
 
 class Videos extends React.Component {
 

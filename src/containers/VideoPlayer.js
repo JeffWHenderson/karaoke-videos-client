@@ -1,9 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
+    import { mountVideo } from '../actions/videoPlayer'
 import NowPlaying from '../components/VideoPlayer'
 
 class VideoPlayer extends React.Component {
+
   componentDidMount() {
-    this.setState({video: {title: "mulan"}})
+    this.props.mountVideo
   }
 
   render() {
@@ -14,5 +17,11 @@ class VideoPlayer extends React.Component {
     )
   }
 }
-
+// const mapStateToProps = (state) => {
+//   return({
+//     videos: state.videos
+//   })
+// }
+//
+// export default connect(mapStateToProps, { getVideos })(Videos)
 export default VideoPlayer

@@ -12,8 +12,8 @@ import VideoQueue from './VideoQueue'
 const App = () => (
       <div>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/videos">All Videos</Link>
+          <Link to="/">Home</Link><br />
+          <Link to="/videos">All Videos</Link><br />
           <Link to="/videos/new">Create Video</Link>
         </nav>
         <div className="App">
