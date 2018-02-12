@@ -1,10 +1,16 @@
 import React from 'react'
+import NowPlaying from '../components/NowPlaying'
 
 class VideoPlayer extends React.Component {
+  componentDidMount() {
+    this.setState({video: {title: "mulan"}})
+    debugger
+  }
+
   render() {
     return (
       <div className="video-player">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WmzH0aKzifk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        < NowPlaying video={this.props.video} />
       </div>
     )
   }
