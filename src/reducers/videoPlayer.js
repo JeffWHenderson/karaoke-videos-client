@@ -4,11 +4,13 @@ const initialVideo = {
 
 const videoPlayer = (state = {}, action) => {
   switch(action.type) {
-    case 'SET_PLAYER_SUCCESS':
-      return action.videos
+    case 'MOUNT_VIDEO_SUCCESS===============':
+      console.log(action)
     case 'CREATE_VIDEO_SUCCESS':
       return state.concat(action.video)
     default:
+      console.log("action is " + action)
+      console.log("state is " + state)
       return state
   }
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getVideos } from '../actions/videos'
 import VideoCard from '../components/VideoCard'
-import mountVideo from '../actions/videoPlayer'
+import { mountVideo } from '../actions/videoPlayer'
 //import VideoForm from './VideoForm'
 
 class Videos extends React.Component {
@@ -13,7 +13,12 @@ class Videos extends React.Component {
 
   handleClick = (event) => {
     event.preventDefault()
-    console.log(this.props)
+    let href = event.target.getAttribute('href')
+    console.log(this.props.mountVideo(href))
+    this.setState({
+      videoPlayer: href
+    })
+
   }
 
   render() {
@@ -36,4 +41,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { getVideos })(Videos)
+export default connect(mapStateToProps, { getVideos, mountVideo })(Videos)

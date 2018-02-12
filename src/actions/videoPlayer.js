@@ -1,3 +1,8 @@
-export const mountVideo = () => {
-  console.log("hello world")
+export const mountVideo = (videoUrl) => {
+  return (
+    {
+      type: "MOUNT_VIDEO_SUCCESS",
+      videoUrl
+    }
+  )
 }
