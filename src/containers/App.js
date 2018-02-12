@@ -12,9 +12,9 @@ import VideoQueue from './VideoQueue'
 const App = () => (
       <div>
         <nav>
-        <Link to="/">Home</Link>
-        <Link to="/videos">All Videos</Link>
-        <Link to="/videos/new">Create Video</Link>
+          <Link to="/">Home</Link>
+          <Link to="/videos">All Videos</Link>
+          <Link to="/videos/new">Create Video</Link>
         </nav>
         <div className="App">
             <Route path="/" component={VideoPlayer} />

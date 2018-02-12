@@ -15,9 +15,6 @@ class Videos extends React.Component {
       <div>
         <h1>Videos</h1>
         {this.props.videos.map((video) => <VideoCard video={video} /> )}
-
-
-
       </div>
     )
   }
