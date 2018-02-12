@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'
+import '../styles/App.css'
 import { Link, Route, Switch } from 'react-router-dom'
 
 import Videos from './Videos'
