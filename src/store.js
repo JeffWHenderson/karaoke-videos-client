@@ -7,10 +7,12 @@ import thunk from 'redux-thunk'
 
 import videos from './reducers/videos'
 import videoFormData from './reducers/videoFormData'
+import videoPlayer from './reducers/videoPlayer'
 
 const reducers = combineReducers({
   videos,
-  videoFormData
+  videoFormData,
+  videoPlayer
 })
 const middleware = [thunk]
 
@@ -19,17 +21,3 @@ export default createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(...middleware)
 )
-
-// let videos = videosReducer(undefined, {type: "@@INIT"})
-
-// var store = {
-//   videos: [{...}],
-//   videoFormData: [
-//     title: '',
-//     artist: '',
-//     youtube_url: '',
-//     img_url: ''
-//   ],
-//   currentVideos: [...]
-//   }
-// }

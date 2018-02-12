@@ -2,7 +2,7 @@ const initialVideo = {
   youtube_url: "https://www.youtube.com/embed/2SDcqTNKf-o"
 }
 
-const NowPlayingReducer = (state = {}, action) => {
+const videoPlayer = (state = {}, action) => {
   switch(action.type) {
     case 'SET_PLAYER_SUCCESS':
       return action.videos
@@ -12,4 +12,4 @@ const NowPlayingReducer = (state = {}, action) => {
       return state
   }
 }
-export default videosReducer
+export default videoPlayer
