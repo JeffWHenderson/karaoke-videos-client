@@ -23,14 +23,18 @@ class VideoForm extends React.Component {
       <div>
       Add A Karaoke Video From Youtube
         <form onSubmit={this.handleOnSubmit}>
-          <label htmlFor="title" >title</label>
+          <label htmlFor="title" >Title:  </label>
             <input type="text" onChange={this.handleOnChange} name="title" value={title} />
-          <label htmlFor="artist" >Artist</label>
+            <br />
+          <label htmlFor="artist" >Artist: </label>
             <input type="text" onChange={this.handleOnChange} name="artist" value={artist} />
-          <label htmlFor="youtube_url" >URL</label>
+            <br />
+          <label htmlFor="youtube_url" >URL:    </label>
             <input type="text" onChange={this.handleOnChange} name="youtube_url" value={youtube_url} />
-          <label htmlFor="img_url" >Image URL</label>
+            <br />
+          <label htmlFor="img_url" >Image: </label>
             <input type="text" onChange={this.handleOnChange} name="img_url" value={img_url} />
+            <br />
           <button type="submit">SUBMIT</button>
         </form>
       </div>

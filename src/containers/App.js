@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 
 import Videos from './Videos'
 import VideoForm from './VideoForm'
@@ -9,10 +9,7 @@ import VideoQueue from './VideoQueue'
 
 
 
-class App extends React.Component {
-
-  render() {
-    return(
+const App = () => (
       <div>
         <nav>
         <Link to="/">Home</Link>
@@ -20,14 +17,11 @@ class App extends React.Component {
         <Link to="/videos/new">Create Video</Link>
         </nav>
         <div className="App">
-          <VideoPlayer />
-          <VideoForm />
-          <Videos />
-          <VideoQueue />
+            <Route path="/" component={VideoPlayer} />
+            <Route exact path="/videos" component={Videos} />
+            <Route exact path="/videos/new" component={VideoForm} />
         </div>
       </div>
-    )
-  }
-}
+)
 
 export default App
