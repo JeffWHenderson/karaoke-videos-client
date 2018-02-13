@@ -21,7 +21,7 @@ class Videos extends React.Component {
       console.log(event.target.parentNode)
     }
   }
-
+        //this will work by making an array of queue and sending those props to videoQueue.
   render() {
     return(
       <div>
@@ -31,7 +31,7 @@ class Videos extends React.Component {
             <VideoCard video={video} />
           </div>
         )}
-        <VideoQueue />
+        <VideoQueue video={"hello"} />
       </div>
 
     )
