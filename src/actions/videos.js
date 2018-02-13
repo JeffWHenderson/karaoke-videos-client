@@ -17,7 +17,6 @@ const addVideo = (video) => {
   }
 }
 
-
 // ** async actions
 export const getVideos = () => {
   return dispatch => {

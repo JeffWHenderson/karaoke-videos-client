@@ -16,6 +16,4 @@ const mapStateToProps = (state) => {
   return({videoPlayer: state.videoPlayer})
 }
 
-// console.log(connect(mapStateToProps, {NowPlaying}))
 export default connect(mapStateToProps, { NowPlaying })(VideoPlayer)
-// export default VideoPlayer
