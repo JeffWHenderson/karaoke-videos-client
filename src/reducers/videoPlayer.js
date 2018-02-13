@@ -1,13 +1,12 @@
 const initialVideo = {
-  youtube_url: "https://www.youtube.com/embed/2SDcqTNKf-o"
+  videoIdentifier: "2SDcqTNKf-o"
 }
 
-const videoPlayer = (state = {}, action) => {
+const videoPlayer = (state = initialVideo, action) => {
   switch(action.type) {
-    case 'MOUNT_VIDEO_SUCCESS===============':
-      console.log(action)
-    case 'CREATE_VIDEO_SUCCESS':
-      return state.concat(action.video)
+    case 'MOUNT_VIDEO_SUCCESS':
+
+      return {videoIdentifier: action.videoIdentifier}
     default:
       console.log("action is " + action)
       console.log("state is " + state)

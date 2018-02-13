@@ -14,11 +14,7 @@ class Videos extends React.Component {
   handleClick = (event) => {
     event.preventDefault()
     let href = event.target.getAttribute('href')
-    console.log(this.props.mountVideo(href))
-    this.setState({
-      videoPlayer: href
-    })
-
+    this.props.mountVideo(href)
   }
 
   render() {
