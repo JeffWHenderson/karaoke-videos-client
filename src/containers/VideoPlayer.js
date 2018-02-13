@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
     import { mountVideo } from '../actions/videoPlayer'
 import NowPlaying from '../components/VideoPlayer'
 
-class VideoPlayer extends React.Component {
+export class VideoPlayer extends React.Component {
 
   componentDidMount() {
     this.props.mountVideo
@@ -12,16 +12,14 @@ class VideoPlayer extends React.Component {
   render() {
     return (
       <div className="video-player">
-        < NowPlaying video={this.props.video} />
+        < NowPlaying video="eoaTHw5C3Yk" />
       </div>
     )
   }
 }
-// const mapStateToProps = (state) => {
-//   return({
-//     videos: state.videos
-//   })
-// }
-//
-// export default connect(mapStateToProps, { getVideos })(Videos)
+
+const mapStateToProps = (state) => {
+  return({state})
+}
+//export default connect(mapStateToProps, { NowPlaying })(VideoPlayer)
 export default VideoPlayer

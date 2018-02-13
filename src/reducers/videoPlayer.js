@@ -5,11 +5,8 @@ const initialVideo = {
 const videoPlayer = (state = initialVideo, action) => {
   switch(action.type) {
     case 'MOUNT_VIDEO_SUCCESS':
-
       return {videoIdentifier: action.videoIdentifier}
     default:
-      console.log("action is " + action)
-      console.log("state is " + state)
       return state
   }
 }
