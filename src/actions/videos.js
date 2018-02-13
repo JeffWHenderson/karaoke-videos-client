@@ -1,5 +1,3 @@
-import { resetVideoForm } from './videoForm'
-
 // ** action Creators
 const setVideos = (videos) => {
   return (
@@ -39,7 +37,6 @@ export const createVideo = video => {
     .then(res => res.json())
     .then(video => {
       dispatch(addVideo(video))
-      dispatch(resetVideoForm())
     })
     .catch(error => console.log(error))
   }
