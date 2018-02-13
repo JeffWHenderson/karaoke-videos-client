@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getVideos } from '../actions/videos'
 import VideoCard from '../components/VideoCard'
 import { mountVideo } from '../actions/videoPlayer'
+import  VideoQueue  from '../components/VideoQueue'
 //import VideoForm from './VideoForm'
 
 class Videos extends React.Component {
@@ -14,7 +15,11 @@ class Videos extends React.Component {
   handleClick = (event) => {
     event.preventDefault()
     let href = event.target.getAttribute('href')
-    this.props.mountVideo(href)
+    if(href){
+      this.props.mountVideo(href)
+    } else {
+      console.log(event.target.parentNode)
+    }
   }
 
   render() {
@@ -26,7 +31,9 @@ class Videos extends React.Component {
             <VideoCard video={video} />
           </div>
         )}
+        <VideoQueue />
       </div>
+
     )
   }
 }
