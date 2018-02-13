@@ -8,11 +8,13 @@ import thunk from 'redux-thunk'
 import videos from './reducers/videos'
 import videoFormData from './reducers/videoFormData'
 import videoPlayer from './reducers/videoPlayer'
+import videoQueue from './reducers/videoQueue'
 
 const reducers = combineReducers({
   videos,
   videoFormData,
-  videoPlayer
+  videoPlayer,
+  videoQueue
 })
 const middleware = [thunk]
 
