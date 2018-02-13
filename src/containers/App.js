@@ -2,9 +2,9 @@ import React from 'react';
 import '../styles/App.css'
 import { Link, Route } from 'react-router-dom'
 
-import Videos from '../containers/Videos'
-import VideoForm from '../containers/VideoForm'
-import VideoPlayer from '../containers/VideoPlayer'
+import Videos from './Videos'
+import VideoForm from './VideoForm'
+import VideoPlayer from './VideoPlayer'
 
     import { BrowserRouter } from 'react-router-dom'
 const App = () => (
