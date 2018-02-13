@@ -6,7 +6,9 @@ import Videos from '../containers/Videos'
 import VideoForm from '../containers/VideoForm'
 import VideoPlayer from '../containers/VideoPlayer'
 
+    import { BrowserRouter } from 'react-router-dom'
 const App = () => (
+  <BrowserRouter>
       <div>
         <nav>
           <Link to="/">Home</Link><br />
@@ -19,6 +21,7 @@ const App = () => (
             <Route exact path="/videos/new" component={VideoForm} />
         </div>
       </div>
+    </BrowserRouter>
 )
 
 export default App
