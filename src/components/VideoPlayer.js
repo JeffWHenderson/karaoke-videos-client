@@ -1,18 +1,23 @@
 import React from 'react'
+import YouTube from 'react-youtube'
 
 const NowPlaying = (video_object) => {
-  const src = `src="https://www.youtube.com/embed/${video_object.video}"`
-
+  const opts = {
+    height: '390',
+    width: '640',
+    playerVars: { // https://developers.google.com/youtube/player_parameters
+      autoplay: 0
+    }
+  };
+  
   return (
-
-    <iframe
-      src="https://www.youtube.com/embed/2SDcqTNKf-o"
-      width="560"
-      height="315"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
+    <YouTube
+      videoId={video_object.video}      // defaults -> null
+      id={null}                         // defaults -> null
+      className={null}                  // defaults -> null
+      opts={opts}                       // defaults -> {}
+      // onEnd={func}                   // defaults -> noop
+    />
   )
 }
 export default NowPlaying
