@@ -39,8 +39,12 @@ class Videos extends React.Component {
             <VideoCard video={video} />
           </div>
         )}
-        {this.props.videoQueue.map((video) =>
-          <VideoQueue video={video} /> )}
+        <div className="video-queue">
+          {this.props.videoQueue.map((video) =>
+            <VideoQueue video={video}
+          /> )}
+        </div>
+
       </div>
 
     )
