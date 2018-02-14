@@ -10,6 +10,14 @@ class Videos extends React.Component {
 
   componentDidMount() {
     this.props.getVideos()
+    // this.props.dispatch
+    //
+    // export const addVideoToQueue = (video) => {
+    //   return (
+    //     type: "ADD_TO_QUEUE_SUCCESS",
+    //     video
+    //   )
+    // }
   }
 
   handleClick = (event) => {
@@ -31,7 +39,8 @@ class Videos extends React.Component {
             <VideoCard video={video} />
           </div>
         )}
-        <VideoQueue video={"hello"} />
+        {this.props.videoQueue.map((video) =>
+          <VideoQueue video={video} /> )}
       </div>
 
     )
@@ -40,7 +49,8 @@ class Videos extends React.Component {
 
 const mapStateToProps = (state) => {
   return({
-    videos: state.videos
+    videos: state.videos,
+    videoQueue: state.videoQueue
   })
 }
 
