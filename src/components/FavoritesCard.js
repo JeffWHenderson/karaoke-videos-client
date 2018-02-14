@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FavoritesCard = (video = {title: 'stub', artist: 'test', youtube_url: 'ww=wk'}) => {
-debugger
+// debugger
   return(
   <div>
     Favorites
