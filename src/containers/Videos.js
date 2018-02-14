@@ -10,14 +10,6 @@ class Videos extends React.Component {
 
   componentDidMount() {
     this.props.getVideos()
-    // this.props.dispatch
-    //
-    // export const addVideoToQueue = (video) => {
-    //   return (
-    //     type: "ADD_TO_QUEUE_SUCCESS",
-    //     video
-    //   )
-    // }
   }
 
   handleClick = (event) => {
@@ -25,11 +17,15 @@ class Videos extends React.Component {
     let href = event.target.getAttribute('href')
     if(href){
       this.props.mountVideo(href)
+    } else if(event.target.name === 'queue') {
+      console.log("queue")
+    } else if(event.target.name === 'favorite'){
+        console.log("favorite")
     } else {
-      console.log(event.target.parentNode)
+      console.log("queue-remove")
     }
   }
-        //this will work by making an array of queue and sending those props to videoQueue.
+
   render() {
     return(
       <div>
@@ -39,7 +35,7 @@ class Videos extends React.Component {
             <VideoCard video={video} />
           </div>
         )}
-        <div className="video-queue">
+        <div className="video-queue" onClick={this.handleClick}>
           {this.props.videoQueue.map((video) =>
             <VideoQueue video={video}
           /> )}
