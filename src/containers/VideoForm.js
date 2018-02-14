@@ -32,9 +32,6 @@ class VideoForm extends React.Component {
           <label htmlFor="youtube_url" >URL:    </label>
             <input type="text" onChange={this.handleOnChange} name="youtube_url" value={youtube_url} />
             <br />
-          <label htmlFor="img_url" >Image: </label>
-            <input type="text" onChange={this.handleOnChange} name="img_url" value={img_url} />
-            <br />
           <button type="submit">SUBMIT</button>
         </form>
       </div>
