@@ -15,6 +15,13 @@ const addVideo = (video) => {
   }
 }
 
+export const queueVideo = (video) => {
+  return {
+    type: "ADD_TO_QUEUE_SUCCESS",
+    video
+  }
+}
+
 // ** async actions
 export const getVideos = () => {
   return dispatch => {

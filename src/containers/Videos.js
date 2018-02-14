@@ -4,6 +4,7 @@ import { getVideos } from '../actions/videos'
 import VideoCard from '../components/VideoCard'
 import { mountVideo } from '../actions/videoPlayer'
 import  VideoQueue  from '../components/VideoQueue'
+import {queueVideo} from '../actions/videos'
 //import VideoForm from './VideoForm'
 
 class Videos extends React.Component {
@@ -15,15 +16,18 @@ class Videos extends React.Component {
   handleClick = (event) => {
     event.preventDefault()
     let href = event.target.getAttribute('href')
+    let that = this
     if(href){
       this.props.mountVideo(href)
-    } else if(event.target.name === 'queue') {
-      console.log("queue")
-    } else if(event.target.name === 'favorite'){
-        console.log("favorite")
     } else {
-      console.log("queue-remove")
-    }
+        if(event.target.name === 'queue') {
+          that.props.queueVideo(event.target.dataset)
+        } else if(event.target.name === 'favorite'){
+            console.log("favorite")
+        } else {
+          console.log("queue-remove")
+        }
+      }
   }
 
   render() {
@@ -54,4 +58,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { getVideos, mountVideo })(Videos)
+export default connect(mapStateToProps, { queueVideo, getVideos, mountVideo })(Videos)

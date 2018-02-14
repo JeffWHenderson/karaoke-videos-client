@@ -1,7 +1,8 @@
-const videoQueue = (state = [{title: 'test', artist: 'tester', youtube_url: "12=3"}], action) => {
+const videoQueue = (state = [], action) => {
   switch(action.type) {
     case "ADD_TO_QUEUE_SUCCESS":
-      return action.videos
+
+      return [...videoQueue, action.video]
     default:
       return state
   }
