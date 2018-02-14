@@ -5,6 +5,7 @@ import VideoCard from '../components/VideoCard'
 import { mountVideo } from '../actions/videoPlayer'
 import  VideoQueue  from '../components/VideoQueue'
 import {queueVideo} from '../actions/videos'
+import FavoritesCard from '../components/FavoritesCard'
 //import VideoForm from './VideoForm'
 
 class Videos extends React.Component {
@@ -30,21 +31,28 @@ class Videos extends React.Component {
       }
   }
 
+  toggleLink = () => {
+    return true
+  }
+
   render() {
     return(
       <div>
-        <h1>Videos</h1>
-        {this.props.videos.map((video) =>
-          <div onClick={this.handleClick} >
-            <VideoCard video={video} />
-          </div>
-        )}
+      {
+        (this.toggleLink()) ? (
+          this.props.videos.map((video) =>
+            <div onClick={this.handleClick} ><VideoCard video={video} /></div>)
+        ) : (
+            this.props.videos.filter(video => video.favorite === true).forEach(video => console.log(video))
+        )
+      }
+
+
         <div className="video-queue" onClick={this.handleClick}>
           {this.props.videoQueue.map((video) =>
             <VideoQueue video={video}
           /> )}
         </div>
-
       </div>
 
     )

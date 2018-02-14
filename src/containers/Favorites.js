@@ -1,11 +1,22 @@
 import React from 'react'
-import Favorites from '../components/Favorites'
+import FavoritesCard from '../components/FavoritesCard'
 
 class Favorites extends React.Component {
+
+  componentDidMount() {
+
+    const x = fetch('http://localhost:3001/api/videos')
+      .then(res => res.json())
+    // .then(videos => dispatch(setVideos(videos))) // may need to remove
+    // .catch(err => console.log(err))
+    debugger
+  }
   render() {
-    return {
-      <Favorites />
-    }
+    return  (
+      <div>
+        <FavoritesCard />
+      </div>
+    )
   }
 }
 
