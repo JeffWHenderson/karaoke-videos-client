@@ -2,20 +2,34 @@ import React from 'react'
 import FavoritesCard from '../components/FavoritesCard'
 
 class Favorites extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      FavoriteVideos: []
+    }
+  }
 
   componentDidMount() {
-
-    const x = fetch('http://localhost:3001/api/videos')
+      fetch('http://localhost:3001/api/videos')
       .then(res => res.json())
-    // .then(videos => dispatch(setVideos(videos))) // may need to remove
-    // .catch(err => console.log(err))
-    debugger
+      .then(data => {
+        this.setState({
+          FavoriteVideos: data.filter(video => video.favorite === true)
+        })
+      })
   }
+
   render() {
     return  (
-      <div>
-        <FavoritesCard />
-      </div>
+        <div>
+          {this.state.FavoriteVideos.map(video =>
+            <div>
+              <FavoritesCard video={video}   />
+            </div>
+          )}
+        </div>
+
     )
   }
 }

@@ -1,12 +1,13 @@
 import React from 'react'
 
-const FavoritesCard = (video = {title: 'stub', artist: 'test', youtube_url: 'ww=wk'}) => {
-// debugger
+const FavoritesCard = ({ video }) => {
+  debugger
   return(
-  <div>
-    Favorites
-    <p>{video.title}</p>
-  </div>
-)
+    <div target="_blank" /*href={video.youtube_url}*/ className="video-card" key={video.id} >
+      <h3>{video.title}</h3>
+      <p>artist: {video.artist}</p>
+      <button href={video.youtube_url} >play</button>
+    </div>
+  )
 }
 export default FavoritesCard
