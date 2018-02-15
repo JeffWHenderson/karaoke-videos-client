@@ -12,10 +12,10 @@ const App = () => (
   <BrowserRouter>
       <div>
         <nav>
-          <Link to="/">Home</Link><br />
-          <Link to="/videos">All Videos</Link><br />
-          <Link to="/videos/new">Create Video</Link>
-          <Link to="/videos/favorites">Create Video</Link>
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/videos">All Videos</Link>
+          <Link className="nav-link" to="/videos/new">Create Video</Link>
+          <Link className="nav-link" to="/videos/favorites">Favorites</Link>
         </nav>
         <div className="App">
             <Route path="/" component={VideoPlayer} />

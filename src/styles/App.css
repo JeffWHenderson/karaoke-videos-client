@@ -2,13 +2,24 @@
   text-align: center;
 }
 
+nav {
+  background-color: black
+}
+
+.nav-link {
+  text-align: right;
+  color: rgb(168, 201, 255);
+  padding-right: 5px;
+  margin-left: 5px;
+}
+
 .video-card {
   float: left;
   margin: 2px;
   display: inline-block;
-  width: 24%;
+  width: 32.9%;
   background: white;
-  height: 130px;
+  height: 150px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }.video-card:hover {
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
