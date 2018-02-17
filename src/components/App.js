@@ -5,7 +5,7 @@ import { Link, Route } from 'react-router-dom'
 import Videos from '../containers/Videos'
 import VideoForm from '../containers/VideoForm'
 import VideoPlayer from '../containers/VideoPlayer'
-import Favorites from '../containers/Favorites'
+import Welcome from './Welcome'
 
     import { BrowserRouter } from 'react-router-dom'
 const App = () => (
@@ -14,14 +14,14 @@ const App = () => (
         <nav>
           <Link className="nav-link" to="/">Home</Link>
           <Link className="nav-link" to="/videos">All Videos</Link>
-          <Link className="nav-link" to="/videos/new">Create Video</Link>
-          <Link className="nav-link" to="/videos/favorites">Favorites</Link>
+          <Link className="nav-link" to="/videos/new">Add Video</Link>
         </nav>
         <div className="App">
+
             <Route path="/" component={VideoPlayer} />
+            <Route exact path="/" component={Welcome} />
             <Route exact path="/videos" component={Videos} />
             <Route exact path="/videos/new" component={VideoForm} />
-            <Route exact path="/videos/favorites" component={Favorites} />
         </div>
       </div>
     </BrowserRouter>
