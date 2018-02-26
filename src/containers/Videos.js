@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getVideos } from '../actions/videos'
 import { mountVideo } from '../actions/videoPlayer'
 import {queueVideo} from '../actions/videos'
+import {unqueueVideo} from '../actions/videos'
 
 import FavoritesCard from '../components/FavoritesCard'
 import VideoCard from '../components/VideoCard'
@@ -24,11 +25,13 @@ class Videos extends React.Component {
       this.props.mountVideo(href)
     } else {
         if(event.target.name === 'queue') {
+          console.log(event.target.dataset)
           that.props.queueVideo(event.target.dataset)
         } else if(event.target.name === 'favorite'){
             console.log("favorite")
         } else if(event.target.name === 'queue-remove'){
-          console.log("queue-remove") // add unfavorrite
+          that.props.unqueueVideo()
+          console.log(event.target.dataset)
         } else {
           console.log("unfavorite")
         }
@@ -66,4 +69,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { queueVideo, getVideos, mountVideo })(Videos)
+export default connect(mapStateToProps, { unqueueVideo, queueVideo, getVideos, mountVideo })(Videos)

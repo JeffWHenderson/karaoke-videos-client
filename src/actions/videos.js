@@ -22,6 +22,13 @@ export const queueVideo = (video) => {
   }
 }
 
+export const unqueueVideo = () => {
+  return {
+    type: "REMOVE_QUEUE_SUCCESS",
+
+  }
+}
+
 // ** async actions
 export const getVideos = () => {
   return dispatch => {
