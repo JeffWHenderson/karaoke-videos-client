@@ -7,7 +7,8 @@ import VideoForm from '../containers/VideoForm'
 import VideoPlayer from '../containers/VideoPlayer'
 import Welcome from './Welcome'
 
-    import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+
 const App = () => (
   <BrowserRouter>
       <div>

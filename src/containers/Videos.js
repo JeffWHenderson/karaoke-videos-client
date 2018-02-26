@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import { getVideos } from '../actions/videos'
-import VideoCard from '../components/VideoCard'
 import { mountVideo } from '../actions/videoPlayer'
-import  VideoQueue  from '../components/VideoQueue'
 import {queueVideo} from '../actions/videos'
+
 import FavoritesCard from '../components/FavoritesCard'
-//import VideoForm from './VideoForm'
+import VideoCard from '../components/VideoCard'
+import  VideoQueue  from '../components/VideoQueue'
+
 
 class Videos extends React.Component {
 
@@ -25,8 +27,10 @@ class Videos extends React.Component {
           that.props.queueVideo(event.target.dataset)
         } else if(event.target.name === 'favorite'){
             console.log("favorite")
+        } else if(event.target.name === 'queue-remove'){
+          console.log("queue-remove") // add unfavorrite
         } else {
-          console.log("queue-remove")
+          console.log("unfavorite")
         }
       }
   }

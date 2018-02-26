@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import NowPlaying from '../components/VideoPlayer'
 
 export class VideoPlayer extends React.Component {

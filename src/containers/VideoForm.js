@@ -1,7 +1,9 @@
 import React from "react"
 import { connect } from 'react-redux'
-import { updateVideoFormData } from '../actions/videoForm'
+
 import { createVideo } from '../actions/videos'
+import { updateVideoFormData } from '../actions/videoForm'
+
 
 class VideoForm extends React.Component {
 
