@@ -55,3 +55,23 @@ export const createVideo = video => {
     .catch(error => console.log(error))
   }
 }
+
+export const favoriteVideo = video => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/videos`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({video: video })
+    })
+    .then(res => {
+      debugger
+      res.json()})
+    .then(video => {
+      //debugger
+      //dispatch(addVideo(video))
+    })
+    .catch(error => console.log(error))
+  }
+}
