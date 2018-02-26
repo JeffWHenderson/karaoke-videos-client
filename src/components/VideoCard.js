@@ -7,7 +7,7 @@ const VideoCard = ({ video }) => {
       <p>artist: {video.artist}</p>
       <button name="queue" data-title={video.title} data-artist={video.artist} data-youtube_url={video.youtube_url}>Queue</button>
       <button href={video.youtube_url} >play</button>
-      <button videoId={video.id} name="favorite">Favorite</button>
+      <button data-videoid={video.id} name="favorite">Favorite</button>
     </div>
 )
 }

@@ -56,14 +56,14 @@ export const createVideo = video => {
   }
 }
 
-export const favoriteVideo = video => {
+export const favoriteVideo = videoid => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/videos`, {
+    return fetch(`http://localhost:3001/api/videos/${videoid}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({video: video })
+      body: JSON.stringify({favorite: true })
     })
     .then(res => {
       debugger
