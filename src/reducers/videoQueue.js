@@ -3,7 +3,7 @@ const videoQueue = (state = [], action) => {
     case "ADD_TO_QUEUE_SUCCESS":
       return [...videoQueue, action.video]
     case "REMOVE_QUEUE_SUCCESS":
-      return [...videoQueue]
+      return [...videoQueue]  // refactor here when I add multiple videos to the video Queue
     default:
       return state
   }

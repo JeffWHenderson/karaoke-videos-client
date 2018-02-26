@@ -30,10 +30,9 @@ class Videos extends React.Component {
         } else if(event.target.name === 'favorite'){
             console.log("favorite")
         } else if(event.target.name === 'queue-remove'){
-          that.props.unqueueVideo()
-          console.log(event.target.dataset)
+          that.props.unqueueVideo()     // this will need refactor if I add multiple videos to Queue
         } else {
-          console.log("unfavorite")
+          console.log("unfavorite")    // add a call to backend here
         }
       }
   }
