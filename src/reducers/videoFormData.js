@@ -5,7 +5,7 @@ const initialState = {
   youtube_url: ''
 }
 
-export default (state = initialState, action) => {
+const videoFormData = (state = initialState, action) => {
     switch(action.type) {
       case 'UPDATED_DATA':
         return action.videoFormData
@@ -15,3 +15,4 @@ export default (state = initialState, action) => {
         return state
     }
 }
+export default videoFormData

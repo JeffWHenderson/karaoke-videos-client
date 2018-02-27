@@ -58,7 +58,7 @@ export const createVideo = video => {
 
 export const favoriteVideo = videoid => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/videos/${videoid}`, {
+    return fetch(`http://localhost:3001/api/videos/${videoid}/update`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -66,7 +66,6 @@ export const favoriteVideo = videoid => {
       body: JSON.stringify({favorite: true })
     })
     .then(res => {
-      debugger
       res.json()})
     .then(video => {
       //debugger
