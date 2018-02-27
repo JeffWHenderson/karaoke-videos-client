@@ -40,20 +40,24 @@ class Videos extends React.Component {
       <div>
 
         <div className="video-queue" onClick={this.handleClick}>
+          <h1>Video Queue</h1>
           {this.props.videoQueue.map((video) =>
             <VideoQueue video={video}
           /> )}
         </div>
 
-      {this.props.videos.map(video => (video.favorite === false) ?
-        <div onClick={this.handleClick} >
-          <VideoCard video={video} />
+        <div className="video-container">
+            <h1>Karaoke Songs</h1>
+            {this.props.videos.map(video => (video.favorite === false) ?
+              <div onClick={this.handleClick} >
+                <VideoCard video={video} />
+              </div>
+            :
+              <div onClick={this.handleClick} >
+                <FavoritesCard video={video} />
+              </div>
+            )}
         </div>
-      :
-        <div onClick={this.handleClick} >
-          <FavoritesCard video={video} />
-        </div>
-      )}
     </div>
     )
   }
