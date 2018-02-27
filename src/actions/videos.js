@@ -15,13 +15,6 @@ const addVideo = (video) => {
   }
 }
 
-const updateFavorite = (video) => {
-  return {
-    type: 'UPDATE_FAVORITE_SUCCESS',
-    video
-  }
-}
-
 export const queueVideo = (video) => {
   return {
     type: "ADD_TO_QUEUE_SUCCESS",
@@ -73,10 +66,6 @@ export const favoriteVideo = videoid => {
       body: JSON.stringify({video: {favorite: true}})
     })
     .then(() => dispatch(getVideos()))
-    // .then(res => res.json())
-    // .then(video => {
-    //   dispatch(updateFavorite(video))
-    // })
     .catch(error => console.log("error"))
   }
 }

@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 import { getVideos, queueVideo, unqueueVideo, favoriteVideo } from '../actions/videos'
 import { mountVideo } from '../actions/videoPlayer'
-// import {queueVideo} from '../actions/videos'
-// import {unqueueVideo} from '../actions/videos'
 
 import FavoritesCard from '../components/FavoritesCard'
 import VideoCard from '../components/VideoCard'
@@ -30,9 +28,9 @@ class Videos extends React.Component {
         } else if(event.target.name === 'favorite'){
             that.props.favoriteVideo(event.target.dataset.videoid)
         } else if(event.target.name === 'queue-remove'){
-          that.props.unqueueVideo()     // this will need refactor if I add multiple videos to Queue
+          that.props.unqueueVideo()
         } else {
-          console.log("unfavorite")    // add a call to backend here
+          console.log("unfavorite")  
         }
       }
   }

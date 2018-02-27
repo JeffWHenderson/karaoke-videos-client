@@ -12,6 +12,3 @@ const videosReducer = (state = [], action) => {
   }
 }
 export default videosReducer
-
-
-// state.find(video => video.title == action.video.title)
