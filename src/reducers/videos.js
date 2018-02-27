@@ -4,8 +4,14 @@ const videosReducer = (state = [], action) => {
       return action.videos
     case 'CREATE_VIDEO_SUCCESS':
       return state.concat(action.video)
+    case 'UPDATE_FAVORITE_SUCCESS':
+      debugger
+      return state.concat(action.video)
     default:
       return state
   }
 }
 export default videosReducer
+
+
+// state.find(video => video.title == action.video.title)

@@ -15,6 +15,13 @@ const addVideo = (video) => {
   }
 }
 
+const updateFavorite = (video) => {
+  return {
+    type: 'UPDATE_FAVORITE_SUCCESS',
+    video
+  }
+}
+
 export const queueVideo = (video) => {
   return {
     type: "ADD_TO_QUEUE_SUCCESS",
@@ -58,17 +65,18 @@ export const createVideo = video => {
 
 export const favoriteVideo = videoid => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/videos/${videoid}/update`, {
+    return fetch(`http://localhost:3001/api/videos/${videoid}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({video: {favorite: true}})
     })
-    .then(res => res.json())
-    .then(video => {
-      //dispatch(addVideo(video))
-    })
+    .then(() => dispatch(getVideos()))
+    // .then(res => res.json())
+    // .then(video => {
+    //   dispatch(updateFavorite(video))
+    // })
     .catch(error => console.log("error"))
   }
 }
