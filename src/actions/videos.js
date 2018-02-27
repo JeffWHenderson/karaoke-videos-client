@@ -63,14 +63,12 @@ export const favoriteVideo = videoid => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({favorite: true })
+      body: JSON.stringify({video: {favorite: true}})
     })
-    .then(res => {
-      res.json()})
+    .then(res => res.json())
     .then(video => {
-      //debugger
       //dispatch(addVideo(video))
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log("error"))
   }
 }
