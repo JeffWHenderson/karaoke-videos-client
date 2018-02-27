@@ -69,3 +69,17 @@ export const favoriteVideo = videoid => {
     .catch(error => console.log("error"))
   }
 }
+
+export const unfavoriteVideo = videoid => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/videos/${videoid}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({video: {favorite: false}})
+    })
+    .then(() => dispatch(getVideos()))
+    .catch(error => console.log("error"))
+  }
+}

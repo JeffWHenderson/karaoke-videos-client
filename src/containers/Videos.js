@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { getVideos, queueVideo, unqueueVideo, favoriteVideo } from '../actions/videos'
+import { getVideos, queueVideo, unqueueVideo, favoriteVideo, unfavoriteVideo } from '../actions/videos'
 import { mountVideo } from '../actions/videoPlayer'
 
 import FavoritesCard from '../components/FavoritesCard'
@@ -28,9 +28,9 @@ class Videos extends React.Component {
         } else if(event.target.name === 'favorite'){
             that.props.favoriteVideo(event.target.dataset.videoid)
         } else if(event.target.name === 'queue-remove'){
-          that.props.unqueueVideo()
+            that.props.unqueueVideo()
         } else {
-          console.log("unfavorite")  
+            that.props.unfavoriteVideo(event.target.dataset.videoid)
         }
       }
   }
@@ -66,4 +66,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { favoriteVideo, unqueueVideo, queueVideo, getVideos, mountVideo })(Videos)
+export default connect(mapStateToProps, { unfavoriteVideo, favoriteVideo, unqueueVideo, queueVideo, getVideos, mountVideo })(Videos)
