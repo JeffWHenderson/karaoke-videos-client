@@ -3,7 +3,7 @@ const videoQueue = (state = [], action) => {
     case "ADD_TO_QUEUE_SUCCESS":
       return [...state, action.video]
     case "REMOVE_QUEUE_SUCCESS":
-      return [...videoQueue]  // refactor here when I add multiple videos to the video Queue
+      return state.filter(video => video.title != action.video.title) 
     default:
       return state
   }

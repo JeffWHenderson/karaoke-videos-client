@@ -22,10 +22,10 @@ export const queueVideo = (video) => {
   }
 }
 
-export const unqueueVideo = () => {
+export const unqueueVideo = (video) => {
   return {
     type: "REMOVE_QUEUE_SUCCESS",
-            // refactor here when I add multiple videos to the queue
+    video
   }
 }
 
