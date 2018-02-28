@@ -5,14 +5,14 @@ class VideoCard extends React.Component {
     super(props)
 
     this.state = {
-      counter: 0
+      counter: this.props.video.play_count // getting play_count from Rails API
     }
   }
 
   handleClick = (event) => {
     event.preventDefault()
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter + 1 // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
     })
   }
 

@@ -19,18 +19,19 @@ class Videos extends React.Component {
     event.preventDefault()
     let href = event.target.getAttribute('href')
     let that = this
-    if(href){
+    if(href){  // this should refect if the play button is clicked preferably as a Switch Statement.
       this.props.mountVideo(href) // right here is where I can make the play Counter init
     } else {
         if(event.target.name === 'queue') {
-            console.log(event.target.dataset)
             that.props.queueVideo(event.target.dataset)
         } else if(event.target.name === 'queue-remove'){
             that.props.unqueueVideo(event.target.dataset)
         } else if(event.target.name === 'Favorite'){
             that.props.favoriteVideo(event.target.dataset.videoid)
-        } else {
+        } else if (event.target.name === 'Unfavorite'){
             that.props.unfavoriteVideo(event.target.dataset.videoid)
+        } else {
+          console.log("the event wasn't caught in -Videos.js- handleClick function")
         }
       }
   }
