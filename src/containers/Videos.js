@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getVideos, queueVideo, unqueueVideo, favoriteVideo, unfavoriteVideo } from '../actions/videos'
 import { mountVideo } from '../actions/videoPlayer'
 
-import FavoritesCard from '../components/FavoritesCard'
+// import FavoritesCard from '../components/FavoritesCard'
 import VideoCard from '../components/VideoCard'
 import  VideoQueue  from '../components/VideoQueue'
 
@@ -20,14 +20,14 @@ class Videos extends React.Component {
     let href = event.target.getAttribute('href')
     let that = this
     if(href){
-      this.props.mountVideo(href)
+      this.props.mountVideo(href) // right here is where I can make the play Counter init
     } else {
         if(event.target.name === 'queue') {
             console.log(event.target.dataset)
             that.props.queueVideo(event.target.dataset)
         } else if(event.target.name === 'queue-remove'){
             that.props.unqueueVideo(event.target.dataset)
-        } else if(event.target.name === 'favorite'){
+        } else if(event.target.name === 'Favorite'){
             that.props.favoriteVideo(event.target.dataset.videoid)
         } else {
             that.props.unfavoriteVideo(event.target.dataset.videoid)
@@ -49,12 +49,12 @@ class Videos extends React.Component {
         <div className="video-container">
             <h1>Karaoke Songs</h1>
             {this.props.videos.map(video => (video.favorite === false) ?
-              <div onClick={this.handleClick} >
+              <div className="gibberish" onClick={this.handleClick} >
                 <VideoCard video={video} />
               </div>
             :
-              <div onClick={this.handleClick} >
-                <FavoritesCard video={video} />
+              <div className="NONgibberish" onClick={this.handleClick} >
+                <VideoCard video={video} />
               </div>
             )}
         </div>
