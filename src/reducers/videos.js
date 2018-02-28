@@ -3,7 +3,7 @@ const videosReducer = (state = [], action) => {
     case 'GET_VIDEOS_SUCCESS':
       return action.videos
     case 'CREATE_VIDEO_SUCCESS':
-      return state.concat(action.video)
+      return [...state, action.video] //state.concat(action.video)
     case 'UPDATE_FAVORITE_SUCCESS':
       return state.concat(action.video)
     default:

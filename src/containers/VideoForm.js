@@ -16,6 +16,7 @@ class VideoForm extends React.Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createVideo(this.props.videoFormData)
+    this.props.history.push('/videos')
   }
 
   render() {

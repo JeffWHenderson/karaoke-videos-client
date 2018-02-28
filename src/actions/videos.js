@@ -51,6 +51,7 @@ export const createVideo = video => {
     .then(res => res.json())
     .then(video => {
       dispatch(addVideo(video))
+      //dispatch(getVideos)
     })
     .catch(error => console.log(error))
   }
