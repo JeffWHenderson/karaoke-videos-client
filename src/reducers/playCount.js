@@ -1,5 +1,5 @@
 const initialState = {
-  play_count: 0
+  playCount: 0
 }
 
 const playCount = (state = initialState, action) => {

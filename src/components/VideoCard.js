@@ -18,9 +18,10 @@ class VideoCard extends React.Component {
      nextPlayCount // this takes the new number for play count
   }
 
-  postVideoPlayCount = (nextPlayCount, videoId) => {
+  postVideoPlayCount = (playCount, videoId) => {
+    let nextPlayCount = playCount + 1
     return dispatch => {
-      return fetch(`http://localhost:3001/api/videos/${videoId}`, { // make dynamic
+      return fetch(`http://localhost:3001/api/videos/${videoId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -28,22 +29,15 @@ class VideoCard extends React.Component {
           body: JSON.stringify({video: {play_count: nextPlayCount}})
         })
         .then(
-          this.setState({
-            counter: this.state.counter + 1 // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
-          })
           //() => dispatch(this.incrementPlayCount(nextPlayCount))
+          this.setState({
+            counter: nextPlayCount//this.state.counter + 1 
+          })
         )
         .catch(error => console.log("error"))
     }
   }
 
-  // handleClickX = (event) => {
-  //   event.preventDefault()
-  //   let newCount = this.state.counter + 1
-  //   this.setState({
-  //     counter: newCount // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
-  //   })
-  // }
   //==========================================================
 
   render() {
@@ -66,18 +60,16 @@ class VideoCard extends React.Component {
             >{favoriteOrUnfavorite}
           </button>
           <br />
-          <button  onClick={this.postVideoPlayCount(this.state.counter + 1, video.id)}>click me!</button> Play Count: {this.state.counter}
+          <button  onClick={this.postVideoPlayCount(this.state.counter, video.id)}>click me!</button> Play Count: {this.state.counter}
         </div>
     )
   }
 }
-export default VideoCard
 
+const mapStateToProps = (state) => {
+  return({
+    playCount: state.playCount.playCount
+  })
+}
 
-// const mapStateToProps = (state) => {
-//   return({
-//     play_count: state.playCount.playCount
-//   })
-// }
-//
-// export default connect(mapStateToProps, { postVideoPlayCount })(VideoCard)
+export default connect(mapStateToProps)(VideoCard)

@@ -36,7 +36,7 @@ class Videos extends React.Component {
       }
   }
 
-  render() {
+  render() { /////////// I can refactor the ternary out of this if I leave the sort alphabetical instead of by favorites.
     return(
       <div>
 
