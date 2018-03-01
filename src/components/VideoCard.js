@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import postVideoPlayCount from "../actions/videos"
 
 class VideoCard extends React.Component {
   constructor(props){
@@ -9,11 +12,23 @@ class VideoCard extends React.Component {
     }
   }
 
-  handleClick = (event) => {
+  // componentDidMount() {
+  //   fetch('http://localhost:3001/api/videos/27')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     debugger
+  //     this.setState({
+  //       counter: data.play_count
+  //     })
+  //    })
+  // }
+
+  handleClickX = (event) => {
     event.preventDefault()
-    this.setState({
-      counter: this.state.counter + 1 // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
-    })
+    postVideoPlayCount(this.state.counter + 1)
+    // this.setState({
+    //   counter: this.state.counter + 1 // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
+    // })
   }
 
   render() {
@@ -36,9 +51,18 @@ class VideoCard extends React.Component {
             >{favoriteOrUnfavorite}
           </button>
           <br />
-          <button onClick={this.handleClick}>click me!</button> Play Count: {this.state.counter}
+          <button onClick={this.handleClickX}>click me!</button> Play Count: {this.state.counter}
         </div>
     )
   }
 }
-export default VideoCard
+// export default VideoCard
+
+
+const mapStateToProps = (state) => {
+  return({
+    play_count: state.playCount.playCount
+  })
+}
+
+export default connect(mapStateToProps, { postVideoPlayCount })(VideoCard)
