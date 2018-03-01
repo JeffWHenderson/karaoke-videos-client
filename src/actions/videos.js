@@ -1,30 +1,26 @@
-// this is for the play count feature.
-const incrementPlayCount = (nextPlayCount) => {
-  type: "ADD_TO_PLAY_COUNT",
-  nextPlayCount // this takes the new number for play count
-}
-
-const postVideoPlayCount = (nextPlayCount) => {
-  return dispatch => {
-    return fetch(`http://localhost:3001/api/videos/19`, { // don't forget to make this dynamic and take out the hard coded 19
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ video: {favorite: false} }) //{play_count: nextPlayCount}
-    })
-    .then(res => {
-      res.json()
-    })
-    .then(video => {
-      dispatch(incrementPlayCount(nextPlayCount))
-      //dispatch(getVideos)  // i may need this so I can rerender if Redux doesn't do that for me
-    })
-    .catch(error => console.log(error))
-  }
-}
-     export default postVideoPlayCount
-
+// // this is for the play count feature.
+// const incrementPlayCount = (nextPlayCount) => {
+//    type: "ADD_TO_PLAY_COUNT",
+//    nextPlayCount // this takes the new number for play count
+// }
+// //=============================================
+// const postVideoPlayCount = (nextPlayCount = 5) => {
+//   return dispatch => {
+//     return fetch(`http://localhost:3001/api/videos/19`, { // make dynamic
+//         method: 'PUT',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({video: {play_count: nextPlayCount}})
+//       })
+//       .then(() => dispatch(incrementPlayCount(nextPlayCount)))
+//       .catch(error => console.log("error"))
+//   }
+// }
+//
+//   export default postVideoPlayCount()
+//
+// //==============================================
 // ** action Creators
 const setVideos = (videos) => {
   return (
@@ -59,9 +55,9 @@ export const unqueueVideo = (video) => {
 // ** async actions
 export const getVideos = () => {
   return dispatch => {
-    fetch('http://localhost:3001/api/videos/19') // take out the /19 (this is just for extending a feature as a unit.)
+    fetch('http://localhost:3001/api/videos')
     .then(res => res.json())
-    .then(videos => dispatch(setVideos([videos]))) // take out the bracets around videos
+    .then(videos => dispatch(setVideos(videos)))
     .catch(err => console.log(err))
   }
 }

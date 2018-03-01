@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import postVideoPlayCount from "../actions/videos"
+// import postVideoPlayCount from "../actions/videos"
 
 class VideoCard extends React.Component {
   constructor(props){
@@ -11,25 +11,40 @@ class VideoCard extends React.Component {
       counter: this.props.video.play_count // getting play_count from Rails API
     }
   }
-
-  // componentDidMount() {
-  //   fetch('http://localhost:3001/api/videos/27')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     debugger
-  //     this.setState({
-  //       counter: data.play_count
-  //     })
-  //    })
-  // }
-
-  handleClickX = (event) => {
-    event.preventDefault()
-    postVideoPlayCount(this.state.counter + 1)
-    // this.setState({
-    //   counter: this.state.counter + 1 // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
-    // })
+  //==========================================================
+  incrementPlayCount = (nextPlayCount) =>  {
+    debugger
+     type: "ADD_TO_PLAY_COUNT",
+     nextPlayCount // this takes the new number for play count
   }
+
+  postVideoPlayCount = (nextPlayCount, videoId) => {
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/videos/${videoId}`, { // make dynamic
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({video: {play_count: nextPlayCount}})
+        })
+        .then(
+          this.setState({
+            counter: this.state.counter + 1 // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
+          })
+          //() => dispatch(this.incrementPlayCount(nextPlayCount))
+        )
+        .catch(error => console.log("error"))
+    }
+  }
+
+  // handleClickX = (event) => {
+  //   event.preventDefault()
+  //   let newCount = this.state.counter + 1
+  //   this.setState({
+  //     counter: newCount // incrementing playcount by 1 (immutable) on "click-me" ToDo: refactor for on play_click
+  //   })
+  // }
+  //==========================================================
 
   render() {
     const { video } = this.props
@@ -51,18 +66,18 @@ class VideoCard extends React.Component {
             >{favoriteOrUnfavorite}
           </button>
           <br />
-          <button onClick={this.handleClickX}>click me!</button> Play Count: {this.state.counter}
+          <button  onClick={this.postVideoPlayCount(this.state.counter + 1, video.id)}>click me!</button> Play Count: {this.state.counter}
         </div>
     )
   }
 }
-// export default VideoCard
+export default VideoCard
 
 
-const mapStateToProps = (state) => {
-  return({
-    play_count: state.playCount.playCount
-  })
-}
-
-export default connect(mapStateToProps, { postVideoPlayCount })(VideoCard)
+// const mapStateToProps = (state) => {
+//   return({
+//     play_count: state.playCount.playCount
+//   })
+// }
+//
+// export default connect(mapStateToProps, { postVideoPlayCount })(VideoCard)
