@@ -31,7 +31,7 @@ class VideoCard extends React.Component {
         .then(
           //() => dispatch(this.incrementPlayCount(nextPlayCount))
           this.setState({
-            counter: nextPlayCount//this.state.counter + 1 
+            counter: nextPlayCount//this.state.counter + 1
           })
         )
         .catch(error => console.log("error"))
@@ -51,6 +51,7 @@ class VideoCard extends React.Component {
             name="queue" data-title={video.title} data-artist={video.artist} data-youtube_url={video.youtube_url}>Queue
           </button>
           <button
+            name="play"
             href={video.youtube_url}
             >play
           </button>

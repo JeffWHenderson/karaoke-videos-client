@@ -16,24 +16,21 @@ class Videos extends React.Component {
   }
 
   handleClick = (event) => {
-    event.preventDefault()
-    let href = event.target.getAttribute('href')
     let that = this
-    if(href){  // this should refect if the play button is clicked preferably as a Switch Statement.
-      this.props.mountVideo(href) // right here is where I can make the play Counter init
-    } else {
-        if(event.target.name === 'queue') {
-            that.props.queueVideo(event.target.dataset)
-        } else if(event.target.name === 'queue-remove'){
-            that.props.unqueueVideo(event.target.dataset)
-        } else if(event.target.name === 'Favorite'){
-            that.props.favoriteVideo(event.target.dataset.videoid)
-        } else if (event.target.name === 'Unfavorite'){
-            that.props.unfavoriteVideo(event.target.dataset.videoid)
-        } else {
-          console.log("the event wasn't caught in -Videos.js- handleClick function")
-        }
-      }
+    switch(event.target.name) {
+      case "play":
+        return that.props.mountVideo(event.target.getAttribute('href'))
+      case "queue":
+        return  that.props.queueVideo(event.target.dataset)
+      case "queue-remove":
+        return that.props.unqueueVideo(event.target.dataset)
+      case "Favorite":
+        return that.props.favoriteVideo(event.target.dataset.videoid)
+      case "Unfavorite":
+        return that.props.unfavoriteVideo(event.target.dataset.videoid)
+      default:
+        console.log("the event wasn't caught in -Videos.js- handleClick function")
+    }
   }
 
   render() { /////////// I can refactor the ternary out of this if I leave the sort alphabetical instead of by favorites.
