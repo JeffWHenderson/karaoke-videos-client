@@ -6,7 +6,13 @@ const VideoQueue = ({video}) => {
       <h4>{video.title}</h4>
       <p>artist: {video.artist}</p>
       <button name="queue-remove" data-title={video.title} data-artist={video.artist} data-youtube_url={video.youtube_url}>Remove</button>
-      <button name="play" href={video.youtube_url} >play</button>
+      <button
+        name="play"
+        data-videoid={video.videoid}
+        data-playcount={video.playcount}
+        href={video.youtube_url} >
+        play
+      </button>
     </div>
   )
 }

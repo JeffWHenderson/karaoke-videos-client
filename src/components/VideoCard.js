@@ -18,7 +18,13 @@ class VideoCard extends React.Component {
           <h3>{video.title}</h3>
           <p>artist: {video.artist}</p>
           <button
-            name="queue" data-title={video.title} data-artist={video.artist} data-youtube_url={video.youtube_url}>Queue
+            name="queue"
+            data-title={video.title}
+            data-artist={video.artist}
+            data-youtube_url={video.youtube_url}
+            data-videoid={video.id}
+            data-playcount={video.play_count}
+            >Queue
           </button>
           <button
             name="play"
