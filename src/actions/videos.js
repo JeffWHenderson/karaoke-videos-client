@@ -107,3 +107,24 @@ export const unfavoriteVideo = videoid => {
     .catch(error => console.log("error"))
   }
 }
+const incrementPlayCount = (nextPlayCount) =>  {
+  return {
+   type: "ADD_TO_PLAY_COUNT",
+   nextPlayCount // this takes the new number for play count
+ }
+}
+
+export const postVideoPlayCount = (playCount, videoId) => {
+  let nextPlayCount = parseInt(playCount) + 1
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/videos/${videoId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({video: {play_count: nextPlayCount}})
+      })
+      .then(() => dispatch(incrementPlayCount(nextPlayCount)))
+      .catch(error => console.log("error"))
+  }
+}

@@ -9,25 +9,29 @@ import VideoCard from '../components/VideoCard'
 import  VideoQueue  from '../components/VideoQueue'
 
 
+
+import {postVideoPlayCount} from '../actions/videos'
+
 class Videos extends React.Component {
 
   componentDidMount() {
     this.props.getVideos()
   }
 
-  handleClick = (event) => {
-    let that = this
+  handleClick = (event) => {  //let that = this
+    let data = event.target.dataset
     switch(event.target.name) {
       case "play":
-        return that.props.mountVideo(event.target.getAttribute('href'))
+        this.props.postVideoPlayCount(data.playcount, data.videoid)
+        return this.props.mountVideo(event.target.getAttribute('href'))
       case "queue":
-        return  that.props.queueVideo(event.target.dataset)
+        return  this.props.queueVideo(data)
       case "queue-remove":
-        return that.props.unqueueVideo(event.target.dataset)
+        return this.props.unqueueVideo(data)
       case "Favorite":
-        return that.props.favoriteVideo(event.target.dataset.videoid)
+        return this.props.favoriteVideo(data.videoid)
       case "Unfavorite":
-        return that.props.unfavoriteVideo(event.target.dataset.videoid)
+        return this.props.unfavoriteVideo(data.videoid)
       default:
         console.log("the event wasn't caught in -Videos.js- handleClick function")
     }
@@ -68,4 +72,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { unfavoriteVideo, favoriteVideo, unqueueVideo, queueVideo, getVideos, mountVideo })(Videos)
+export default connect(mapStateToProps, { postVideoPlayCount, unfavoriteVideo, favoriteVideo, unqueueVideo, queueVideo, getVideos, mountVideo })(Videos)

@@ -6,6 +6,9 @@ const videosReducer = (state = [], action) => {
       return [...state, action.video] //state.concat(action.video)
     case 'UPDATE_FAVORITE_SUCCESS':
       return state.concat(action.video)
+    case "ADD_TO_PLAY_COUNT":
+      debugger
+      return [state]
     default:
       return state
   }
