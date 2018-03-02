@@ -8,7 +8,7 @@ const videosReducer = (state = [], action) => {
       return state.concat(action.video)
     case "ADD_TO_PLAY_COUNT":
       debugger
-      return [state]
+      return [...state, {video: "another video"}]
     default:
       return state
   }

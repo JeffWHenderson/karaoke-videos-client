@@ -107,13 +107,16 @@ export const unfavoriteVideo = videoid => {
     .catch(error => console.log("error"))
   }
 }
-const incrementPlayCount = (nextPlayCount) =>  {
-  return {
-   type: "ADD_TO_PLAY_COUNT",
-   nextPlayCount // this takes the new number for play count
- }
-}
+// ====================================================================
+// const incrementPlayCount = (nextPlayCount) =>  {
+//   return {
+//    type: "ADD_TO_PLAY_COUNT",
+//    nextPlayCount // this takes the new number for play count
+//  }
+// }
 
+// THIS ISN'T DOING ANYTHING AT THE MOMENT I CAN PROBABLY GET RID OF IT
+// =====================================================================
 export const postVideoPlayCount = (playCount, videoId) => {
   let nextPlayCount = parseInt(playCount) + 1
   return dispatch => {
@@ -124,7 +127,7 @@ export const postVideoPlayCount = (playCount, videoId) => {
         },
         body: JSON.stringify({video: {play_count: nextPlayCount}})
       })
-      .then(() => dispatch(incrementPlayCount(nextPlayCount)))
+      .then(() => dispatch(getVideos())) //incrementPlayCount(nextPlayCount)
       .catch(error => console.log("error"))
   }
 }

@@ -37,7 +37,7 @@ class VideoCard extends React.Component {
 
           this is removed temoraraly for testing a new feature
 
-           */>click me!</button> Play Count: {this.state.counter}
+           */>click me!</button> Play Count: {video.play_count}
         </div>
     )
   }
