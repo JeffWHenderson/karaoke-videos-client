@@ -1,26 +1,3 @@
-// // this is for the play count feature.
-// const incrementPlayCount = (nextPlayCount) => {
-//    type: "ADD_TO_PLAY_COUNT",
-//    nextPlayCount // this takes the new number for play count
-// }
-// //=============================================
-// const postVideoPlayCount = (nextPlayCount = 5) => {
-//   return dispatch => {
-//     return fetch(`http://localhost:3001/api/videos/19`, { // make dynamic
-//         method: 'PUT',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({video: {play_count: nextPlayCount}})
-//       })
-//       .then(() => dispatch(incrementPlayCount(nextPlayCount)))
-//       .catch(error => console.log("error"))
-//   }
-// }
-//
-//   export default postVideoPlayCount()
-//
-// //==============================================
 // ** action Creators
 const setVideos = (videos) => {
   return (

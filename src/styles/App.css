@@ -5,7 +5,7 @@
 nav {
   background-color: black
 }
-.gibberish{
+.Favorite{
   float: left;
   margin: 2px;
   display: inline-block;
@@ -17,7 +17,7 @@ nav {
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.NONgibberish {
+.Unfavorite {
   float: left;
   margin: 2px;
   display: inline-block;

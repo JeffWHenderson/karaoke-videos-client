@@ -6,9 +6,9 @@ const videosReducer = (state = [], action) => {
       return [...state, action.video] //state.concat(action.video)
     case 'UPDATE_FAVORITE_SUCCESS':
       return state.concat(action.video)
-    case "ADD_TO_PLAY_COUNT":
-      debugger
-      return [...state, {video: "another video"}]
+    // case "ADD_TO_PLAY_COUNT": // THIS IS NOT BEING USED EITHER
+    //   debugger
+    //   return [...state, {video: {title: "test", artist: "test", youtube_url:"test=t", favorite:true, play_count:0}}]
     default:
       return state
   }

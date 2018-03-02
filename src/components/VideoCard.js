@@ -14,7 +14,7 @@ class VideoCard extends React.Component {
     const { video } = this.props
     const favoriteOrUnfavorite = video.favorite ? "Unfavorite" : "Favorite" // this is new, gets rid of need for a favorite card
     return(
-        <div target="_blank" /*href={video.youtube_url}*/ className="video-card" key={video.id} >
+        <div target="_blank" /*href={video.youtube_url}*/ className={favoriteOrUnfavorite} key={video.id} >
           <h3>{video.title}</h3>
           <p>artist: {video.artist}</p>
           <button
@@ -39,11 +39,7 @@ class VideoCard extends React.Component {
             >{favoriteOrUnfavorite}
           </button>
           <br />
-          <button /*onClick={this.postVideoPlayCount(this.state.counter, video.id)}
-
-          this is removed temoraraly for testing a new feature
-
-           */>click me!</button> Play Count: {video.play_count}
+           Play Count: {video.play_count}
         </div>
     )
   }

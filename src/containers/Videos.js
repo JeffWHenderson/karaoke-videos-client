@@ -51,11 +51,11 @@ class Videos extends React.Component {
         <div className="video-container">
             <h1>Karaoke Songs</h1>
             {this.props.videos.map(video => (video.favorite === false) ?
-              <div className="gibberish" onClick={this.handleClick} >
+              <div onClick={this.handleClick} >
                 <VideoCard video={video} />
               </div>
             :
-              <div className="NONgibberish" onClick={this.handleClick} >
+              <div onClick={this.handleClick} >
                 <VideoCard video={video} />
               </div>
             )}
