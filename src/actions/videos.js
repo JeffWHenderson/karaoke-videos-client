@@ -50,7 +50,7 @@ export const createVideo = video => {
     })
     .then(res => res.json())
     .then(video => {
-      dispatch(addVideo(video))
+      dispatch(addVideo(video)) // probably can do this a little bit better
       //dispatch(getVideos)
     })
     .catch(error => console.log(error))
@@ -66,7 +66,7 @@ export const favoriteVideo = videoid => {
       },
       body: JSON.stringify({video: {favorite: true}})
     })
-    .then(() => dispatch(getVideos()))
+    .then(() => dispatch(getVideos())) // there is a more creative way to do this
     .catch(error => console.log("error"))
   }
 }
@@ -80,7 +80,7 @@ export const unfavoriteVideo = videoid => {
       },
       body: JSON.stringify({video: {favorite: false}})
     })
-    .then(() => dispatch(getVideos()))
+    .then(() => dispatch(getVideos())) // there is a more creative way to do this
     .catch(error => console.log("error"))
   }
 }

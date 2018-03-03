@@ -3,13 +3,6 @@ import { connect } from 'react-redux'
 // import postVideoPlayCount from "../actions/videos"
 
 class VideoCard extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      counter: this.props.video.play_count // getting play_count from Rails API
-    }
-  }
-
   render() {
     const { video } = this.props
     const favoriteOrUnfavorite = video.favorite ? "Unfavorite" : "Favorite" // this is new, gets rid of need for a favorite card
@@ -47,7 +40,6 @@ class VideoCard extends React.Component {
 
 const mapStateToProps = (state) => {
   return({
-
     playCount: state.playCount.playCount
   })
 }
