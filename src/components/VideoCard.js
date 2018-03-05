@@ -1,11 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import postVideoPlayCount from "../actions/videos"
+import {postVideoPlayCount} from "../actions/videos"
 
 class VideoCard extends React.Component {
+
+  handlePlayClick = (count, videoId) => {
+    this.props.postVideoPlayCount(count, videoId)
+    console.log("the button was clicked")
+  }
+
   render() {
     const video = this.props.videos[this.props.index] // this is funky but its my solution to making this stateful (otherwise all the state would just be in the Videos.js)
     const favoriteOrUnfavorite = video.favorite ? "Unfavorite" : "Favorite" // this is new, gets rid of need for a favorite card
+
     return(
         <div target="_blank" /*href={video.youtube_url}*/ className={favoriteOrUnfavorite} key={video.id} >
           <h3>{video.title}</h3>
@@ -20,6 +27,7 @@ class VideoCard extends React.Component {
             >Queue
           </button>
           <button
+            onClick={this.handlePlayClick(video.play_count, video.id)} // this is for the handler
             name="play"
             data-videoid={video.id}
             data-playcount={video.play_count}
@@ -45,7 +53,7 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(VideoCard)
+export default connect(mapStateToProps, { postVideoPlayCount })(VideoCard)
 
 
 

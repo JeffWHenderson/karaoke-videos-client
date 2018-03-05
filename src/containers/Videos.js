@@ -22,7 +22,7 @@ class Videos extends React.Component {
     let data = event.target.dataset
     switch(event.target.name) {
       case "play":
-        this.props.postVideoPlayCount(data.playcount, data.videoid)
+        //this.props.postVideoPlayCount(data.playcount, data.videoid)
         return this.props.mountVideo(event.target.getAttribute('href'))
       case "queue":
         return  this.props.queueVideo(data)
