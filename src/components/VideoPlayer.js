@@ -9,7 +9,7 @@ const NowPlaying = (video_object) => {
       autoplay: 0
     }
   };
-  
+
   return (
     <YouTube
       videoId={video_object.video}      // defaults -> null
