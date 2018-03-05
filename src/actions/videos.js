@@ -8,13 +8,6 @@ const setVideos = (videos) => {
   )
 }
 
-// const updateFavorite = (videoId) => {
-//   return {
-//     type: "UPDATE_FAVORITE_SUCCESS",
-//     videoId
-//   }
-// }
-
 const addVideo = (video) => {
   return {
     type: 'CREATE_VIDEO_SUCCESS',
@@ -101,8 +94,6 @@ const incrementPlayCount = (nextPlayCount, videoid) =>  {
  }
 }
 
-// THIS ISN'T DOING ANYTHING AT THE MOMENT I CAN PROBABLY GET RID OF IT
-// =====================================================================
 export const postVideoPlayCount = (playCount, videoId) => {
   let nextPlayCount = parseInt(playCount, 10) + 1
   return dispatch => {

@@ -3,14 +3,9 @@ import { connect } from 'react-redux'
 
 import { getVideos, queueVideo, unqueueVideo, favoriteVideo, unfavoriteVideo } from '../actions/videos'
 import { mountVideo } from '../actions/videoPlayer'
-
-// import FavoritesCard from '../components/FavoritesCard'
 import VideoCard from '../components/VideoCard'
 import  VideoQueue  from '../components/VideoQueue'
-
-
-// postVideoPlayCount,
-// import {postVideoPlayCount} from '../actions/videos'
+// import {postVideoPlayCount} from '../actions/videos' // postVideoPlayCount,
 
 class Videos extends React.Component {
 
@@ -18,7 +13,7 @@ class Videos extends React.Component {
     this.props.getVideos()
   }
 
-  handleClick = (event) => {  //let that = this
+  handleClick = (event) => {
     let data = event.target.dataset
     switch(event.target.name) {
       case "play":
@@ -40,7 +35,6 @@ class Videos extends React.Component {
   render() {
     return(
       <div>
-
         <div className="video-queue" onClick={this.handleClick}>
           <h1>Video Queue</h1>
           {this.props.videoQueue.map((video) =>

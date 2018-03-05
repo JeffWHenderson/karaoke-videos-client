@@ -18,7 +18,6 @@ const App = () => (
           <Link className="nav-link" to="/videos/new">Add Video</Link>
         </nav>
         <div className="App">
-
             <Route path="/" component={VideoPlayer} />
             <Route exact path="/" component={Welcome} />
             <Route exact path="/videos" component={Videos} />
