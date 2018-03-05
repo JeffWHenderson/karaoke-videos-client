@@ -73,9 +73,9 @@ export const favoriteVideo = videoid => {
       },
       body: JSON.stringify({video: {favorite: true}})
     })
-      .then(() => dispatch(updateFavorite(videoid)))
+    //  .then(() => dispatch(updateFavorite(videoid)))
         // should go back to the dispatch get videos.. just playing with a different pattern here.
-    //.then(() => dispatch(getVideos())) // there is a more creative way to do this
+    .then(() => dispatch(getVideos())) // there is a more creative way to do this
     .catch(error => console.log("error"))
   }
 }

@@ -50,13 +50,13 @@ class Videos extends React.Component {
 
         <div className="video-container">
             <h1>Karaoke Songs</h1>
-            {this.props.videos.map(video => (video.favorite === false) ?
+            {this.props.videos.map((video, index) => (video.favorite === false) ?
               <div onClick={this.handleClick} >
-                <VideoCard video={video} />
+                <VideoCard index={index} />
               </div>
             :
               <div onClick={this.handleClick} >
-                <VideoCard video={video} />
+                <VideoCard index={index} />
               </div>
             )}
         </div>

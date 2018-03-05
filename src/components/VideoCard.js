@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 class VideoCard extends React.Component {
   render() {
-    const { video } = this.props
+    const video = this.props.videos[this.props.index] // this is funky but its my solution to making this stateful (otherwise all the state would just be in the Videos.js)
     const favoriteOrUnfavorite = video.favorite ? "Unfavorite" : "Favorite" // this is new, gets rid of need for a favorite card
     return(
         <div target="_blank" /*href={video.youtube_url}*/ className={favoriteOrUnfavorite} key={video.id} >
