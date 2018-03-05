@@ -20,7 +20,7 @@ class VideoForm extends React.Component {
   }
 
   render() {
-    const { title, artist, img_url, youtube_url } = this.props.videoFormData
+    const { title, artist, youtube_url } = this.props.videoFormData
 
     return (
       <div>

@@ -5,7 +5,7 @@ const videosReducer = (state = [], action) => {
     case 'CREATE_VIDEO_SUCCESS':
       return [...state, action.video] //state.concat(action.video)
     case 'UPDATE_FAVORITE_SUCCESS':
-      let index = state.findIndex((video, index) => {return (video.id === parseInt(action.videoId))})
+      let index = state.findIndex((video, index) => {return (video.id === parseInt(action.videoId, 10))})
       let newState = state
       newState[index].favorite = true
       return newState

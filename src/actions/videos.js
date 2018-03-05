@@ -8,12 +8,12 @@ const setVideos = (videos) => {
   )
 }
 
-const updateFavorite = (videoId) => {
-  return {
-    type: "UPDATE_FAVORITE_SUCCESS",
-    videoId
-  }
-}
+// const updateFavorite = (videoId) => {
+//   return {
+//     type: "UPDATE_FAVORITE_SUCCESS",
+//     videoId
+//   }
+// }
 
 const addVideo = (video) => {
   return {
@@ -104,7 +104,7 @@ export const unfavoriteVideo = videoid => {
 // THIS ISN'T DOING ANYTHING AT THE MOMENT I CAN PROBABLY GET RID OF IT
 // =====================================================================
 export const postVideoPlayCount = (playCount, videoId) => {
-  let nextPlayCount = parseInt(playCount) + 1
+  let nextPlayCount = parseInt(playCount, 10) + 1
   return dispatch => {
     return fetch(`http://localhost:3001/api/videos/${videoId}`, {
         method: 'PUT',
