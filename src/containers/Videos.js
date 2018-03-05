@@ -37,7 +37,7 @@ class Videos extends React.Component {
     }
   }
 
-  render() { /////////// I can refactor the ternary out of this if I leave the sort alphabetical instead of by favorites.
+  render() {
     return(
       <div>
 
@@ -50,12 +50,8 @@ class Videos extends React.Component {
 
         <div className="video-container">
             <h1>Karaoke Songs</h1>
-            {this.props.videos.map((video, index) => (video.favorite === false) ?
-              <div onClick={this.handleClick} >
-                <VideoCard index={index} />
-              </div>
-            :
-              <div onClick={this.handleClick} >
+            {this.props.videos.map((video, index) =>
+              <div onClick={this.handleClick} key={video.id} >
                 <VideoCard index={index} />
               </div>
             )}
