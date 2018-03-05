@@ -9,8 +9,8 @@ import VideoCard from '../components/VideoCard'
 import  VideoQueue  from '../components/VideoQueue'
 
 
-
-import {postVideoPlayCount} from '../actions/videos'
+// postVideoPlayCount,
+// import {postVideoPlayCount} from '../actions/videos'
 
 class Videos extends React.Component {
 
@@ -72,4 +72,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { postVideoPlayCount, unfavoriteVideo, favoriteVideo, unqueueVideo, queueVideo, getVideos, mountVideo })(Videos)
+export default connect(mapStateToProps, { unfavoriteVideo, favoriteVideo, unqueueVideo, queueVideo, getVideos, mountVideo })(Videos)
