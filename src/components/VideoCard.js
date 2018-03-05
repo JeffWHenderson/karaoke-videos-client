@@ -40,7 +40,8 @@ class VideoCard extends React.Component {
 
 const mapStateToProps = (state) => {
   return({
-    playCount: state.playCount.playCount
+    playCount: state.playCount.playCount,
+    videos: state.videos
   })
 }
 

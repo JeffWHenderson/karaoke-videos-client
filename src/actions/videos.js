@@ -8,6 +8,13 @@ const setVideos = (videos) => {
   )
 }
 
+const updateFavorite = (videoId) => {
+  return {
+    type: "UPDATE_FAVORITE_SUCCESS",
+    videoId
+  }
+}
+
 const addVideo = (video) => {
   return {
     type: 'CREATE_VIDEO_SUCCESS',
@@ -66,7 +73,9 @@ export const favoriteVideo = videoid => {
       },
       body: JSON.stringify({video: {favorite: true}})
     })
-    .then(() => dispatch(getVideos())) // there is a more creative way to do this
+      .then(() => dispatch(updateFavorite(videoid)))
+        // should go back to the dispatch get videos.. just playing with a different pattern here.
+    //.then(() => dispatch(getVideos())) // there is a more creative way to do this
     .catch(error => console.log("error"))
   }
 }
