@@ -44,9 +44,9 @@ class Videos extends React.Component {
 
         <div className="video-container">
             <h1>Karaoke Songs</h1>
-            {this.props.videos.map((video, index) =>
+            {this.props.sortedVideos.map((video, index) =>
               <div onClick={this.handleClick} key={video.id} >
-                <VideoCard index={index} />
+                <VideoCard index={index} /* this was sending a video. now it sends a reference because the VideoCard has access to State */ />
               </div>
             )}
         </div>
@@ -57,7 +57,7 @@ class Videos extends React.Component {
 
 const mapStateToProps = (state) => {
   return({
-    videos: state.videos,
+    sortedVideos: state.videos.sort((a, b) => ( b.play_count - a.play_count)), // state.videos.each(video.play_count)
     videoQueue: state.videoQueue
   })
 }
