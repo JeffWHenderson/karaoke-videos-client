@@ -8,28 +8,33 @@ class VideoCard extends React.Component {
      let data = event.target.dataset
      this.props.postVideoPlayCount(data.playcount, data.videoid)
    }
-
-   callApi = () => {
-     console.log('a')
-       fetch('http://localhost:3001/api/videosfffdgf')
-       .then(res => {
-         
-         if (res.ok) {
-
-           console.log('b')
-
-           return res.json()
-         }
-         throw new Error(res.statusText)
-       })
-       .then(videos => console.log('c', videos))
-       .catch(err => console.log('d', err))
-       console.log('e')
-
-       // a b c + videos + e
-
-       // a e d + err
-   }
+//////////////////////////////////this is all just a live code challenge ///////////
+   // callApi = () => {
+   //   console.log('a')
+   //     fetch('http://localhost:3001/api/videosfffdgf')
+   //     .then(res => {
+   //
+   //       if (res.ok) {
+   //
+   //         console.log('b')
+   //
+   //         return res.json()
+   //       }
+   //       throw new Error(res.statusText)
+   //     })
+   //     .then(videos => console.log('c', videos))
+   //     .catch(err => console.log('d', err))
+   //     console.log('e')
+   //
+   // }
+   //
+   //
+   //     <button
+   //       onClick={this.callApi} // event handler
+   //       name="Call Api"
+   //
+   //       >Call Api
+   //     </button>
 
   render() {
     const video = this.props.videos[this.props.index]
@@ -56,12 +61,6 @@ class VideoCard extends React.Component {
             data-playcount={video.play_count}
             href={video.youtube_url}
             >play
-          </button>
-          <button
-            onClick={this.callApi} // event handler
-            name="Call Api"
-
-            >Call Api
           </button>
           <button
             data-videoid={video.id}
